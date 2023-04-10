@@ -8,18 +8,18 @@
  * Return: w- actual number of bytes read and printed
  *        0 when function fails or filename is NULL.
  */
-ssize_t read_textfile(const char *f, size_t l)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char *buf;
 	ssize_t fd;
 	ssize_t write;
 	ssize_t text;
 
-	fd = open(f, O_RDONLY);
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
-	buf = malloc(sizeof(char) * l);
-	text = read(fd, buf, l);
+	buf = malloc(sizeof(char) * letters);
+	text = read(fd, buf, letters);
 	write = write(STDOUT_FILENO, buf, text);
 
 	free(buf);
