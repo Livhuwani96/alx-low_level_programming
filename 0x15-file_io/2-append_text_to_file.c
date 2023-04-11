@@ -9,26 +9,27 @@
  *         If the file does not exist and permissions - -1.
  *         Otherwise - 1.
  */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int open, write, lenght = 0;
+	int o1, w1, len = 0;
 
 	if (filename == NULL)
 		return (-1);
 
 	if (text_content != NULL)
 	{
-		for (lenght = 0; text_content[lenght];)
-			lenght++;
+		for (len = 0; text_content[len];)
+			len++;
 	}
 
-	open = open(filename, O_WRONLY | O_APPEND);
-	write = write(o, text_content, len);
+	o1 = open(filename, O_WRONLY | O_APPEND);
+	w1 = write(o, text_content, len);
 
-	if (open == -1 || write == -1)
+	if (o1 == -1 || w1 == -1)
 		return (-1);
 
-	close(open);
+	close(o1);
 
 	return (1);
 }
