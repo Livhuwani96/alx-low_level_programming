@@ -11,20 +11,20 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *bu;
-	ssize_t fed;
-	ssize_t wm;
-	ssize_t tw;
+	char *u;
+	ssize_t d;
+	ssize_t m;
+	ssize_t t;
 
 	fed = open(filename, O_RDONLY);
-	if (fed == -1)
+	if (d == -1)
 		return (0);
-	bu = malloc(sizeof(char) * letters);
-	tw = read(fed, bu, letters);
-	wm = write(STDOUT_FILENO, bu, tw);
+	u = malloc(sizeof(char) * letters);
+	t = read(d, u, letters);
+	m = write(STDOUT_FILENO, u, t);
 
-	free(bu);
-	close(fed);
-	return (tw);
+	free(u);
+	close(d);
+	return (t);
 }
 
